@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-// import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
 import Button from 'components/CustomButtons/Button.js';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import IconButton from '@material-ui/core/IconButton';
@@ -19,6 +19,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import TitleRoundedIcon from '@material-ui/icons/TitleRounded';
 
 function Copyright() {
     return (
@@ -48,12 +49,13 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        margin: theme.spacing(2),
+        backgroundColor: "#4e342e",
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '90%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
+        
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
@@ -65,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LogIn = ()=> {
+    const history = useHistory()
     const classes = useStyles();
     const [values, setValues] = useState({
         amount: '',
@@ -89,7 +92,9 @@ const LogIn = ()=> {
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
+                   <IconButton onClick={()=> history.push("/")}>
+                    <TitleRoundedIcon fontSize="large" style={{marginTop: 5, color:"#fafafa"}} />
+                    </IconButton>
                 </Avatar>
                 <Typography component="h1" variant="h5" className={classes.loginFont}>
                     <strong>Log in</strong>
@@ -137,7 +142,7 @@ const LogIn = ()=> {
                         color="primary"
                         className={classes.submit}
                     >
-                        Sign In
+                        Log In
                     </Button>
                     <Grid container>
                         <Grid item xs>
@@ -146,8 +151,8 @@ const LogIn = ()=> {
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
+                            <Link href="#" variant="body2" onClick={()=> history.push("/signin")}>
+                                {"Don't have an account? Sign in"}
                             </Link>
                         </Grid>
                     </Grid>

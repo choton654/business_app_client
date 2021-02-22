@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import NavPills from "components/NavPills/NavPills.js";
 import Container from '@material-ui/core/Container';
 import { AppBar, Collapse, IconButton, Toolbar, Typography } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import SideBar from "./sidebar";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
+import Example from "./example";
+
 const useStyles = makeStyles((theme) => ({
     root: {
         height:"100vh",
         backgroundImage:`url(${"images/pexels-pixabay-160599.jpg"})`,
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
-        
     },
     appbar:{
       background:"none"
@@ -49,8 +49,13 @@ const useStyles = makeStyles((theme) => ({
   }));
 const HomeShop = () => {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const [checked, setChecked] = useState(false);
+    const [checked2, setChecked2] = useState(false);
+
+    const handleChange = () => {
+      setChecked2((prev) => !prev);
+    };
     useEffect(() => {
       setChecked(true);
     }, []);
@@ -62,8 +67,9 @@ const HomeShop = () => {
     setOpen(false);
   };
     return (
-     <Container component="main" className={classes.root}>
-      <AppBar position="static" className={classes.appbar} elevation={0}>
+      <div className={classes.root}>
+      <Example checked={checked2} close={handleChange} />
+      <AppBar position="static" className={classes.appbar}>
         <Toolbar variant="dense">
           <Typography  color="inherit" className={classes.appbarTitle}>
             <strong>Tre<span className={classes.titleColor}>azer</span></strong>
@@ -77,9 +83,10 @@ const HomeShop = () => {
       </AppBar>
       <SideBar open={open} close={handleDrawerClose} />
       <Collapse
+       style ={checked2 && {display: "none"}}
         in={checked}
-        {...(checked ? { timeout: 3000 } : {})}
-        collapsedHeight={50}
+        {...(checked ? { timeout: 2000 } : {})}
+        collapsedHeight={20}
       >
         <div className={classes.text}>
           <h1 className={classes.textTitle}>
@@ -88,13 +95,14 @@ const HomeShop = () => {
             <span className={classes.titleColor}>Digital dukan</span>
           </h1>
           <Scroll to="place-to-visit" smooth={true}>
-            <IconButton>
+            <IconButton onClick={handleChange}>
               <ExpandMoreIcon className={classes.goDown} />
             </IconButton>
           </Scroll>
         </div>
       </Collapse>
-      </Container>
+      </div>
+
     )
 }
 
