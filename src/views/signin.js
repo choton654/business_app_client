@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         minHeight:"100vh",
         backgroundImage:`url(${"images/pexels-anastasiya-gepp-2065195.jpg"})`,
+    //   background:"#eceff1",
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
         flex:1
@@ -87,9 +88,9 @@ const SignIn = ({open, close})=> {
         weightRange: '',
         showPassword: false,
     });
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
+    // const handleChange = (prop) => (event) => {
+    //     setValues({ ...values, [prop]: event.target.value });
+    // };
 
     const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
@@ -104,7 +105,7 @@ const SignIn = ({open, close})=> {
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
                     <IconButton onClick={()=> history.push("/")}>
-                    <TitleRoundedIcon fontSize="large" style={{marginTop: 5, color:"#fafafa"}} />
+                    <TitleRoundedIcon fontSize="large" style={{marginTop: 5, color:"#5AFF3D"}} />
                     </IconButton>
                 </Avatar>
                 <Typography component="h1" variant="h5" className={classes.signIn}>
@@ -112,7 +113,7 @@ const SignIn = ({open, close})=> {
                 </Typography>
                 <form className={classes.form} noValidate>
                     <TextField
-                        id="material"
+                        id="material-username"
                         fullWidth={true}
                         placeholder="username"
                         type="text"
@@ -124,7 +125,7 @@ const SignIn = ({open, close})=> {
                     />
                     <TextField
                         className={classes.textField}
-                        id="material"
+                        id="material-password"
                         fullWidth= {true}
                         placeholder="password"
                         type="password"
@@ -144,7 +145,7 @@ const SignIn = ({open, close})=> {
                     />
                      <TextField
                         className={classes.textField}
-                        id="material"
+                        id="material-reEnterPassword"
                         fullWidth= {true}
                         placeholder="re-enter password"
                         type="password"
@@ -164,7 +165,7 @@ const SignIn = ({open, close})=> {
                     />
                       <TextField
                         className={classes.textField}
-                        id="material"
+                        id="material-firstName"
                         fullWidth={true}
                         placeholder="first name"
                         type="text"
@@ -176,7 +177,7 @@ const SignIn = ({open, close})=> {
                     />
                       <TextField
                         className={classes.textField}
-                        id="material"
+                        id="material-lastName"
                         fullWidth={true}
                         placeholder="last name"
                         type="text"
@@ -188,7 +189,7 @@ const SignIn = ({open, close})=> {
                     />
                       <TextField
                         className={classes.textField}
-                        id="material"
+                        id="material-email"
                         fullWidth={true}
                         placeholder="email"
                         type="email767"
@@ -200,7 +201,7 @@ const SignIn = ({open, close})=> {
                     />
                      <TextField
                         className={classes.textField}
-                       id="material"
+                       id="material-mobileNumber"
                        fullWidth= {true}
                        placeholder="+91  mobile number"
                        type="tel"
@@ -211,7 +212,7 @@ const SignIn = ({open, close})=> {
                     />
                       <TextField
                         className={classes.textField}
-                        id="material"
+                        id="material-verificaionCode"
                         fullWidth={true}
                         placeholder="enter verification code"
                         type="tel"

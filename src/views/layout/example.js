@@ -1,7 +1,7 @@
 import React from "react";
 // material-ui components
 import { makeStyles } from "@material-ui/core/styles";
-import {Slide, Paper, Button} from '@material-ui/core';
+import {Slide, Paper} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 // core components
 
@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     root:{
         height:"100vh",
         backgroundImage:`url(${"images/pexels-ricardo-acevedo-1375736.jpg"})`,
+    //   background:"#eceff1",
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
         maxWidth:"100%",

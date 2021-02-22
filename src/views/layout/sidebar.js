@@ -1,12 +1,11 @@
-import { Drawer, IconButton, List } from '@material-ui/core';
-import React, { useState } from 'react';
+import { Drawer, IconButton} from '@material-ui/core';
+import React from 'react';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from 'components/CustomButtons/Button.js';
 import { useHistory } from "react-router-dom";
-import SignIn from "../signin";
-import LogIn from "../login";
+
 
 const drawerWidth = "100%";
 

@@ -15,7 +15,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -38,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         minHeight:"100vh",
         backgroundImage:`url(${"images/pexels-daria-shevtsova-1030895.jpg"})`,
+    //   background:"#eceff1",
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
         flex:1
@@ -76,9 +76,9 @@ const LogIn = ()=> {
         weightRange: '',
         showPassword: false,
     });
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
+    // const handleChange = (prop) => (event) => {
+    //     setValues({ ...values, [prop]: event.target.value });
+    // };
 
     const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
@@ -93,7 +93,7 @@ const LogIn = ()=> {
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
                    <IconButton onClick={()=> history.push("/")}>
-                    <TitleRoundedIcon fontSize="large" style={{marginTop: 5, color:"#fafafa"}} />
+                    <TitleRoundedIcon fontSize="large" style={{marginTop: 5, color:"#5AFF3D"}} />
                     </IconButton>
                 </Avatar>
                 <Typography component="h1" variant="h5" className={classes.loginFont}>
